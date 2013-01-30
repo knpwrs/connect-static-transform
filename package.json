@@ -1,0 +1,22 @@
+{
+  "name": "connect-static-transform",
+  "version": "0.0.0",
+  "description": "A connect middleware which allows transformation of static files before serving them.",
+  "main": "lib/staticTransform.js",
+  "dependencies": {
+    "connect": "~2.7.2"
+  },
+  "repository": "",
+  "keywords": [
+    "connect",
+    "static",
+    "transform",
+    "asset",
+    "pipeline"
+  ],
+  "author": {
+    "name": "Kenneth Powers",
+    "email": "mail@kenpowers.net"
+  },
+  "license": "MIT"
+}

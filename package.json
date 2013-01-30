@@ -6,6 +6,9 @@
   "dependencies": {
     "connect": "~2.7.2"
   },
+  "devDependencies": {
+    "stylus": "0.32.0"
+  },
   "repository": "",
   "keywords": [
     "connect",

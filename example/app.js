@@ -22,7 +22,6 @@ var cssFromStyl = st({
   maxage: 60 * 60 * 24 * 30/*30 days, default is 1 year*/,
   transform: function (path, styl, send) {
     stylus.render(styl, {filename: path, compress: true}, function (err, css) {
-      debugger;
       if (err) {
         throw err;
       }

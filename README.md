@@ -81,7 +81,7 @@ The encoding of the files which are opened for transformation. Defaults to `'utf
 ##Included Middleware Factories
 `connect-static-transform` includes factory functions for common use-cases. Instead of manually creating middleware using the `st` function as above, you can simply use the factories outlined in this section.
 ### Stylus
-To use the Stylus middleware factory you must have [Stylus](https://github.com/LearnBoost/stylus) installed in your project. From there, you can create a Stylus middleware using `st.stylus(root[, compress[, cache[, maxage=31536000]]])`. See the following examples:
+To use the Stylus middleware factory you must have [Stylus](https://github.com/LearnBoost/stylus) installed in your project. If you have [nib](https://github.com/visionmedia/nib) installed in your project it will be automatically included so you can use it. From there, you can create a Stylus middleware using `st.stylus(root[, compress[, cache[, maxage=31536000]]])`. See the following examples:
 
     // If you have a file `foo.styl` in `__dirname` then you can access the compiled css at the url `/foo.css`:
     app.use(st.stylus(__dirname));

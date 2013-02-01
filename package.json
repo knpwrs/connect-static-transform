@@ -1,6 +1,6 @@
 {
   "name": "connect-static-transform",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A connect middleware which allows transformation of static files before serving them.",
   "main": "lib/staticTransform.js",
   "dependencies": {

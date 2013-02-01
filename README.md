@@ -62,6 +62,10 @@ Second, you can pass a function which given the path returns the path of the fil
       // other options
     });
 
+`pathOnly`
+
+If `true` then the signature for the transformation function becomes `function (path, send) { }`, i.e., the file is not opened by `connect-static-transform`.
+
 `cache`
 
 If set to `true` or an otherwise truthy value, the transformed data for each path will be cached in memory. Appropriate cache headers will also be set on the HTTP response.
@@ -85,7 +89,12 @@ To use the Stylus middleware factory you must have [Stylus](https://github.com/L
     app.use(st.stylus(__dirname, true, true));
 
 ### CoffeeScript
-Coming soon...
+To use the CoffeeScript middleware factory you must have [Snockets](https://github.com/TrevorBurnham/snockets) and [Coffee-Script](https://github.com/jashkenas/coffee-script) installed locally. Compilation is handled by Snockets. You can create a CoffeeScript middleware using `st.coffee(root[, options[, cache[, maxage=31536000]]])`. `options` is an object of objects passed to Snockets. See the following examples:
+
+    // If you have a file `foo.coffee` in `__dirname` then you can access the compiles javascript at the url `/foo.js`:
+    app.use(st.coffee(__dirname));
+    // Same as above except the output will be compressed and cached in memory and on the client:
+    app.use(st.coffee(__dirname, {minify: true}, true));
 
 ##License
 **The MIT License**

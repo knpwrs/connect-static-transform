@@ -1,6 +1,6 @@
 {
   "name": "connect-static-transform",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A connect middleware which allows transformation of static files before serving them.",
   "main": "lib/staticTransform.js",
   "dependencies": {
@@ -14,8 +14,12 @@
     "connect",
     "static",
     "transform",
+    "compile",
     "asset",
-    "pipeline"
+    "pipeline",
+    "coffee",
+    "coffee-script",
+    "stylus"
   ],
   "author": {
     "name": "Kenneth Powers",

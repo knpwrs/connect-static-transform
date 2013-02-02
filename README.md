@@ -89,7 +89,7 @@ To use the Stylus middleware factory you must have [Stylus](https://github.com/L
     app.use(st.stylus(__dirname, true, true));
 
 ### CoffeeScript
-To use the CoffeeScript middleware factory you must have [Snockets](https://github.com/TrevorBurnham/snockets) and [Coffee-Script](https://github.com/jashkenas/coffee-script) installed locally. Compilation is handled by Snockets. You can create a CoffeeScript middleware using `st.coffee(root[, options[, cache[, maxage=31536000]]])`. `options` is an object of objects passed to Snockets. See the following examples:
+To use the CoffeeScript middleware factory you must have [Snockets](https://github.com/TrevorBurnham/snockets) and [Coffee-Script](https://github.com/jashkenas/coffee-script) installed locally. Compilation is handled by Snockets. You can create a CoffeeScript middleware using `st.coffee(root[, options[, cache[, maxage=31536000]]])`. `options` is an object of options passed to Snockets. See the following examples:
 
     // If you have a file `foo.coffee` in `__dirname` then you can access the compiles javascript at the url `/foo.js`:
     app.use(st.coffee(__dirname));

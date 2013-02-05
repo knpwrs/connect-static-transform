@@ -7,6 +7,7 @@
     "connect": "~2.7.2"
   },
   "devDependencies": {
+    "snockets": "1.3.8",
     "stylus": "0.32.0"
   },
   "repository": "https://github.com/KenPowers/connect-static-transform",

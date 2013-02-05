@@ -81,20 +81,31 @@ The encoding of the files which are opened for transformation. Defaults to `'utf
 ##Included Middleware Factories
 `connect-static-transform` includes factory functions for common use-cases. Instead of manually creating middleware using the `st` function as above, you can simply use the factories outlined in this section.
 ### Stylus
-To use the Stylus middleware factory you must have [Stylus](https://github.com/LearnBoost/stylus) installed in your project. If you have [nib](https://github.com/visionmedia/nib) installed in your project it will be automatically included so you can use it. From there, you can create a Stylus middleware using `st.stylus(root[, compress[, cache[, maxage=31536000]]])`. See the following examples:
+To use the Stylus middleware factory you must have [Stylus](https://github.com/LearnBoost/stylus) installed in your project. If you have [nib](https://github.com/visionmedia/nib) installed in your project it will be automatically included so you can use it. From there, you can create a Stylus middleware using `st.stylus(options)`. See the following example:
 
-    // If you have a file `foo.styl` in `__dirname` then you can access the compiled css at the url `/foo.css`:
-    app.use(st.stylus(__dirname));
-    // Same as above, except the output will be compressed and cached in memory and on the client
-    app.use(st.stylus(__dirname, true, true));
+    // If you have a file `foo.styl` in `__dirname` then you can access the compiled css at the url `/css/foo.css`:
+    app.use(st.stylus({
+      root: __dirname, // where to open the styl files from
+      path: '/css', // optional, sets where to serve from
+      compress: true, // optional
+      cache: true, // optional, caches in memory as well as on the client
+      maxage: 3600 // optional, sets the maximum number of seconds a client should keep the compiled file (defaults to one year)
+    }));
 
 ### CoffeeScript
-To use the CoffeeScript middleware factory you must have [Snockets](https://github.com/TrevorBurnham/snockets) and [Coffee-Script](https://github.com/jashkenas/coffee-script) installed locally. Compilation is handled by Snockets. You can create a CoffeeScript middleware using `st.coffee(root[, options[, cache[, maxage=31536000]]])`. `options` is an object of options passed to Snockets. See the following examples:
+To use the CoffeeScript middleware factory you must have [Snockets](https://github.com/TrevorBurnham/snockets) and [Coffee-Script](https://github.com/jashkenas/coffee-script) installed locally. Compilation is handled by Snockets. You can create a CoffeeScript middleware using `st.coffee(options)`. See the following examples:
 
-    // If you have a file `foo.coffee` in `__dirname` then you can access the compiles javascript at the url `/foo.js`:
-    app.use(st.coffee(__dirname));
-    // Same as above except the output will be compressed and cached in memory and on the client:
-    app.use(st.coffee(__dirname, {minify: true}, true));
+    // If you have a file `foo.coffee` in `__dirname` then you can access the compiles javascript at the url `/js/foo.js`:
+    app.use(st.coffee({
+      root: __dirname, // where to open the coffee files from
+      path: '/js', // optional, sets where to serve from
+      cache: true, // optional, caches in memory as well as on the client
+      maxage: 3600, // optional, sets the maximum number of seconds a client should keep the compiled file (defaults to one year)
+      // these options are passed to Snockets:
+      options: {
+        minify: true
+      }
+    }));
 
 ##License
 **The MIT License**

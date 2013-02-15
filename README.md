@@ -15,7 +15,7 @@ There are a few examples available in `example/app.js`. Consider the following s
       root: __dirname,
       match: /.+\.txt/,
       transform: function (path, text, send) {
-        send(text.toUpperCase());
+        send(text.toUpperCase(), {'Content-Type': 'text/plain'});
       }
     });
 
@@ -26,6 +26,13 @@ There are a few examples available in `example/app.js`. Consider the following s
     http.createServer(app).listen(3000);
 
 This shows the basic usage. `st` acts as a factory which creates middleware for use in a Connect-like system. The above example will serve all files in `__dirname` matching `/.+\.txt/` in all uppercase letters.
+
+### Examples Directory
+#### Standard Examples
+By running `node examples/standardExample.js` you can access `http://localhost:3000/file.txt` which serves `examples/file.txt` in all uppercase or you can access `http://localhost:3000/file.css` which serves `examples/file.styl` compiled into compressed css.
+
+#### Middleware Factory Examples
+By running `node examples/factoriesExample.js` you can access `http://localhost:3000/css/file.css` which serves `examples/file.styl` compiled into compressed css or you can access `http://localhost:3000/js/file.js` which serves `examples/file.coffee` compiled into compressed JavaScript. See documentation below for examples on how to use the built-in middleware factories.
 
 ## Options
 `st` takes a single argument: an object containing all configuration options.
@@ -42,7 +49,7 @@ This option should be a regular expression which matches the full path of a file
 
 `transform`
 
-This option should be a function which may operate asynchronously. Three arguments are passed to `transform`. The first argument is the path to the file which was opened. The second argument is the data from the file which was opened. The third argument is a callback to which the transformed data should be passed. If the argument to the callback is `false` or otherwise untruthy then the next middleware in the Connect application is invoked.
+This option should be a function which may operate asynchronously. Three arguments are passed to `transform`. The first argument is the path to the file which was opened. The second argument is the data from the file which was opened. The third argument is a callback to which the transformed data should be passed. If the argument to the callback is `false` or otherwise untruthy then the next middleware in the Connect application is invoked. The callback function also accepts a second parameter of headers to use in the response -- it is highly recommended (but not required) that this argument is set (see example usage above).
 
 ### Optional options
 

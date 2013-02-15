@@ -9,7 +9,7 @@ var toUpperCase = st({
   root: __dirname,
   match: /.+\.txt/,
   transform: function (path, text, send) {
-    send(text.toUpperCase());
+    send(text.toUpperCase(), {'Content-Type': 'text/plain'});
   }
 });
 

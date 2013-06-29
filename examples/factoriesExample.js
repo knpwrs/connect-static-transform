@@ -7,13 +7,24 @@ var http = require('http'),
 // Create application
 var app = connect();
 
-// Serve .styl files as css from /css
+// Serve .styl files as css from /stylus
 app.use(st.stylus({
   root: __dirname, // open .styl files from this directory
-  path: '/css', // serve .css files from /css
+  path: '/stylus', // serve .css files from /css
   compress: true,
   cache: true,
   maxage: 3600 // one hour in seconds
+}));
+
+// Serve .less files as css from /less
+app.use(st.less({
+  root: __dirname, // open .less files from this directory
+  path: '/less',
+  cache: true,
+  maxage: 3600, // one hour in seconds
+  options: {
+    compress: true
+  }
 }));
 
 // Serve .coffee files as JavaScript from /js

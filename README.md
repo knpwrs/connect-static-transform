@@ -98,7 +98,19 @@ To use the Stylus middleware factory you must have [Stylus](https://github.com/L
       cache: true, // optional, caches in memory as well as on the client
       maxage: 3600 // optional, sets the maximum number of seconds a client should keep the compiled file (defaults to one year)
     }));
+### LESS
+To use the Less middleware factory you must have [LESS](http://lesscss.org/) installed in your project. From there, you can create a LESS middleware using `st.less(options)`. See the following example:
 
+    // If you have a file `foo.less` in `__dirname` then you can access the compiled css at the url `/css/foo.css`:
+    app.use(st.less({
+      root: __dirname, // where to open the less files from
+      path: '/css', // optional, sets where to serve from
+      cache: true, // optional, caches in memory as well as on the client
+      maxage: 3600, // optional, sets the maximum number of seconds a client should keep the compiled file (defaults to one year)
+      options: { // optional, options object to send directly to the LESS compiler
+        compress: true
+      }
+    }));
 ### CoffeeScript
 To use the CoffeeScript middleware factory you must have [Snockets](https://github.com/TrevorBurnham/snockets) and [Coffee-Script](https://github.com/jashkenas/coffee-script) installed locally. Compilation is handled by Snockets. You can create a CoffeeScript middleware using `st.coffee(options)`. See the following examples:
 

@@ -10,7 +10,7 @@ var app = connect();
 // Serve .styl files as css from /stylus
 app.use(st.stylus({
   root: __dirname, // open .styl files from this directory
-  path: '/stylus', // serve .css files from /css
+  path: '/stylus', // serve .css files from /stylus
   compress: true,
   cache: true,
   maxage: 3600 // one hour in seconds
@@ -19,7 +19,7 @@ app.use(st.stylus({
 // Serve .less files as css from /less
 app.use(st.less({
   root: __dirname, // open .less files from this directory
-  path: '/less',
+  path: '/less', // serve .css files from /less
   cache: true,
   maxage: 3600, // one hour in seconds
   options: {

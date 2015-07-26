@@ -81,6 +81,10 @@ If set to `true` or an otherwise truthy value, the transformed data for each pat
 
 Used in conjunction with `cache`, this indicates the maximum age in seconds a client should keep the file cached for. This will not expire the local in-memory cache.
 
+`expires`
+
+Optionally you can set the `Expires` response header. Defaults to 1 year.
+
 `encoding`
 
 The encoding of the files which are opened for transformation. Defaults to `'utf-8'`. If set to `'buffer'` then the transformation function will receive a raw data buffer (see [`fs.readFile(...)`](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_encoding_callback)).

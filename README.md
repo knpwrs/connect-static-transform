@@ -1,5 +1,7 @@
 #connect-static-transform
 ##Introduction
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/knpwrs/connect-static-transform.svg)](https://greenkeeper.io/)
 `connect-static-transform` is a middleware for [Connect](https://github.com/senchalabs/connect) and systems based on Connect such as [Express](https://github.com/visionmedia/express). It allows you to serve static files but gives you an opportunity to transform the content of the files before they are sent to the client (e.g., compiling `.coffee` files or compiling `.styl` files).
 
 ## Example Usage

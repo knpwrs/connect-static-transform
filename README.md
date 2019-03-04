@@ -1,8 +1,11 @@
 # connect-static-transform
+
 ## Introduction
+
 `connect-static-transform` is a middleware for [Connect](https://github.com/senchalabs/connect) and systems based on Connect such as [Express](https://github.com/visionmedia/express). It allows you to serve static files but gives you an opportunity to transform the content of the files before they are sent to the client (e.g., compiling `.coffee` files or compiling `.styl` files).
 
 ## Example Usage
+
 There are a few examples available in `example/app.js`. Consider the following simple example:
 ```js
 // Dependencies
@@ -29,13 +32,17 @@ http.createServer(app).listen(3000);
 This shows the basic usage. `st` acts as a factory which creates middleware for use in a Connect-like system. The above example will serve all files in `__dirname` matching `/.+\.txt/` in all uppercase letters.
 
 ### Examples Directory
+
 #### Standard Examples
+
 By running `node examples/standardExample.js` you can access `http://localhost:3000/file.txt` which serves `examples/file.txt` in all uppercase or you can access `http://localhost:3000/file.css` which serves `examples/file.styl` compiled into compressed css.
 
 #### Middleware Factory Examples
+
 By running `node examples/factoriesExample.js` you can access `http://localhost:3000/css/file.css` which serves `examples/file.styl` compiled into compressed css or you can access `http://localhost:3000/js/file.js` which serves `examples/file.coffee` compiled into compressed JavaScript. See documentation below for examples on how to use the built-in middleware factories.
 
 ## Options
+
 `st` takes a single argument: an object containing all configuration options.
 
 ### Required options
@@ -92,6 +99,7 @@ Optionally you can set the `Expires` response header. Defaults to 1 year.
 The encoding of the files which are opened for transformation. Defaults to `'utf-8'`. If set to `'buffer'` then the transformation function will receive a raw data buffer (see [`fs.readFile(...)`](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_encoding_callback)).
 
 ## Included Middleware Factories
+
 `connect-static-transform` includes factory functions for common use-cases. Instead of manually creating middleware using the `st` function as above, you can simply use the factories outlined in this section.
 
 ### Stylus
@@ -108,6 +116,7 @@ app.use(st.stylus({
 ```
 
 ### LESS
+
 To use the Less middleware factory you must have [LESS](http://lesscss.org/) installed in your project. From there, you can create a LESS middleware using `st.less(options)`. See the following example:
 ```js
 // If you have a file `foo.less` in `__dirname` then you can access the compiled css at the url `/css/foo.css`:
@@ -123,6 +132,7 @@ app.use(st.less({
 ```
 
 ### CoffeeScript
+
 To use the CoffeeScript middleware factory you must have [Snockets](https://github.com/TrevorBurnham/snockets) and [Coffee-Script](https://github.com/jashkenas/coffee-script) installed locally. Compilation is handled by Snockets. You can create a CoffeeScript middleware using `st.coffee(options)`. See the following examples:
 ```coffee
 // If you have a file `foo.coffee` in `__dirname` then you can access the compiles javascript at the url `/js/foo.js`:
@@ -139,6 +149,7 @@ app.use(st.coffee({
 ```
 
 ## License
+
 **The MIT License**
 
 Copyright (c) 2013 Kenneth Powers
